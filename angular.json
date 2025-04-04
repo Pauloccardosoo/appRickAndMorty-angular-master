@@ -85,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "appRickandMorty:build:production"
+              "buildTarget": "appRickandMorty:build:production"
             },
             "development": {
-              "browserTarget": "appRickandMorty:build:development"
+              "buildTarget": "appRickandMorty:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "appRickandMorty:build"
+            "buildTarget": "appRickandMorty:build"
           }
         },
         "test": {
