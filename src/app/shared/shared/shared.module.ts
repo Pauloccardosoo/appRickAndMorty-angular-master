@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { AutoFocusModule } from 'primeng/autofocus';
 
 import { SpinnerComponent } from '../spinner/spinner.component';
 
@@ -11,14 +12,16 @@ import { SpinnerComponent } from '../spinner/spinner.component';
     SpinnerComponent
   ],
   exports: [
-    SpinnerComponent
+    SpinnerComponent,
+    AutoFocusModule
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    AutoFocusModule
   ]
 })
 export class SharedModule { }

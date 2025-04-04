@@ -2,7 +2,7 @@
 
   <div class="card-header">
     <h5 class="card-title text-primary text-center">
-       {{ character?.name }}
+       {{ character.name }}
     </h5>
   </div>
   <div class="row">
@@ -10,8 +10,8 @@
       <div class="img-thumbnail">
         <img
           class="card-img"
-          src="{{ character?.image }}"
-          alt="{{ character?.name }}"
+          src="{{ character.image }}"
+          alt="{{ character.name }}"
         />
       </div>
     </div>
@@ -21,17 +21,17 @@
           Estado:
           <span
             class="badge badge-{{
-              character?.status == 'Alive' ? 'success' : 'danger'
+              character.status == 'Alive' ? 'success' : 'danger'
             }}"
           >
-            {{ character?.status }}
+            {{ character.status }}
           </span>
         </h4>
         <h4 class="card-title">
           Espécie:
           <span
             class="badge badge-{{
-              character?.species == 'Human' ? 'success' : 'danger'
+              character.species == 'Human' ? 'success' : 'danger'
             }}"
           >
             {{ character!.species | especie }}
