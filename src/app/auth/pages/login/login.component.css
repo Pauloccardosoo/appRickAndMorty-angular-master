@@ -1,0 +1,43 @@
+.login-container {
+  background-image: url('/assets/icons/bg.gif');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container::before {
+  content: "";
+  background-image: url('/assets/icons/bg.gif');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5; /* Ajuste a opacidade conforme necessário */
+  z-index: -1; /* Garante que o fundo fique atrás do conteúdo */
+}
+
+.login-form {
+  text-align: center;
+}
+
+.login-form .card {
+  background: linear-gradient(to bottom, #388E3C, #1976D2); /* Gradiente de fundo */
+  color: white; /* Cor do texto para contrastar com o fundo */
+  border: none; /* Remover a borda padrão do card */
+}
+
+.login-form .card .btn-primary {
+  background: linear-gradient(to bottom, #388E3C, #7c08c0); /* Gradiente de fundo */
+  border: none; /* Remover a borda padrão do botão */
+}
+
+.logonav {
+  width: 250px; /* Ajuste o tamanho do logo conforme necessário */
+  margin-bottom: 20px;
+}

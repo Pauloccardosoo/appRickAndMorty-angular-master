@@ -1,0 +1,15 @@
+<div class="container mt-2 shadow-lg">
+  <h1 class=" text-center gradient-text titulo">Lista dos Personagens</h1>
+  <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading && charactersList.length === 0" /> <!-- Show spinner only on initial load -->
+ <div class="row" *ngIf="charactersList.length > 0"> <!-- Show row only if there are characters -->
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let x of charactersList"> <!-- Use charactersList -->
+      <app-characters-character-card [character]="x" />
+    </div>
+  </div>
+  
+  <!-- Show loading indicator for subsequent pages -->
+  <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading && charactersList.length > 0" />
+
+  <!-- Pagination removed as infinite scroll is implemented -->
+  
+</div>

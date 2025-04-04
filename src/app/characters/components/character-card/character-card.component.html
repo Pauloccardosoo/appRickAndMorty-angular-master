@@ -1,0 +1,68 @@
+<div class="card mb-3" style="max-width: 30rem; border: 1px solid transparent; border-image: linear-gradient(to right, #8a05ac, #32FF32) 1; border-radius: 8px;">
+
+  <div class="card-header">
+    <h5 class="card-title text-primary text-center">
+       {{ character?.name }}
+    </h5>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="img-thumbnail">
+        <img
+          class="card-img"
+          src="{{ character?.image }}"
+          alt="{{ character?.name }}"
+        />
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card-body">
+        <h4 class="card-title">
+          Estado:
+          <span
+            class="badge badge-{{
+              character?.status == 'Alive' ? 'success' : 'danger'
+            }}"
+          >
+            {{ character?.status }}
+          </span>
+        </h4>
+        <h4 class="card-title">
+          Espécie:
+          <span
+            class="badge badge-{{
+              character?.species == 'Human' ? 'success' : 'danger'
+            }}"
+          >
+            {{ character!.species | especie }}
+          </span>
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="d-flex justify-content-between"> <!-- Container para alinhar botões -->
+      <!-- Botão Ver Personagem -->
+      <button
+        class="btn btn-outline-primary"
+        [routerLink]="['/characters/detalle/', character!.id]"
+        style="flex-grow: 1; margin-right: 5px;"
+      >
+        Ver Personagem
+        <i class="fa fa-eye"></i>
+      </button>
+
+      <!-- Botão Favoritar -->
+      <button
+        class="btn"
+        [ngClass]="isFavorite ? 'btn-danger' : 'btn-outline-danger'"
+        (click)="toggleFavorite()"
+        title="{{ isFavorite ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}"
+        style="min-width: 40px;"
+      >
+        <span *ngIf="isFavorite">❤</span> <!-- Coração preenchido -->
+        <span *ngIf="!isFavorite">♡</span> <!-- Coração vazio -->
+      </button>
+    </div>
+  </div>
+</div>

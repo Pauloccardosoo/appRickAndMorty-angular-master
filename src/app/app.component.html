@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+
+<ul class="list-group" *ngIf="searchResults && searchResults.characters.length > 0">
+  <li class="list-group-item" *ngFor="let character of searchResults.characters">
+    <a (click)="goToCharacter(character)" class="character-link">
+      <img [src]="character.image" alt="{{ character.name }}" class="character-image">
+      {{ character.name }}
+    </a>
+  </li>
+</ul>

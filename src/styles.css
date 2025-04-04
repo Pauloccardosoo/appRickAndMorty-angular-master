@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Rowdies", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, rgb(18, 86, 233), rgb(18, 211, 137), rgb(161, 10, 231));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 2rem; /* Ajuste o tamanho conforme necessário */
+  font-weight: bold; /* Ajuste o peso da fonte se necessário */
+}

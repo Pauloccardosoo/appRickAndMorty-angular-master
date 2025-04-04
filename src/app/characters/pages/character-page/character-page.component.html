@@ -1,0 +1,113 @@
+<div class="mt-2 container">
+  <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading; else myCharacter" />
+  <ng-template #myCharacter>
+    <div class="card col-12">
+      <div class="card-header">
+        <h3 class="card-title text-center">{{ character!.name }}</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-8">
+            <div class="card-img text-center">
+              <img
+                class="w-75 img-thumbnail"
+                src="{{ character?.image }}"
+                alt="{{ character?.name }}"
+              />
+            </div>
+          </div>
+
+          
+          <div class="col-4">
+            
+            <h4 class="card-title" *ngIf="character?.type">
+              Tipo:
+              {{ character?.type }}
+            </h4>
+            <div class="row">
+              <div class="col-4 col-sm-auto">
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-success">
+                    <h5 class="card-title">Origem:</h5>
+                    <span class="badge bg-white rounded-pill text-sm-start">
+                      {{ character!.origin.name }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 col-sm-auto">
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-success">
+                    <h4 class="card-title">Localização:</h4>
+                    <span class="badge bg-white rounded-pill">
+                      {{ character!.location.name }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 col-sm-auto">
+                <ul class="list-group">
+                  <li
+                    class="list-group-item list-group-item-success d-flex justify-content-between align-items-center"
+                  >
+                    <h4 class="card-title">Quantidade de Episódios:</h4>
+                    <span class="badge bg-white rounded-pill w-45 h-50">
+                      {{ character!.episode.length }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+            
+            </div>
+
+            <div class=" justify-content-between align-items-center mt-2">
+              <div class="col-4 col-sm-auto">
+                <h4 class="card-title">
+                  Estado:
+                  <span
+                    class="badge badge-{{
+                      character?.status == 'Alive' ? 'success' : 'danger'
+                    }}"
+                  >
+                    {{ character?.status }}
+                  </span>
+                </h4>
+              </div>
+              <div class="col-4 col-sm-auto">
+                <h4 class="card-title">
+                  Espécie:
+                  <span class="badge badge">
+                    {{ character!.species }}
+                  </span>
+                </h4>
+              </div>
+              <div class="col-4 col-sm-auto">
+                <h4 class="card-title">
+                  Genero:
+                  <span class="badge badge">
+                    {{ character!.gender }}
+                  </span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="row">
+          <div class="col">
+            Data de criação: {{ character?.created | date : "dd/MM/yyyy" }}
+          </div>
+          <div class="col d-flex justify-content-end">
+            <button class="btn btn-outline-info" routerLink="../">
+              <i class="fa fa-arrow-circle-left"></i>
+              Retornar
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

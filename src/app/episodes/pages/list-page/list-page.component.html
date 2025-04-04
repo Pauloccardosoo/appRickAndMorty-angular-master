@@ -1,0 +1,19 @@
+<div class="container mt-3 shadow-lg border-3">
+  <div class="card-header">
+    <h3 class="text-center gradient-text">Lista de episódios</h3>
+    <!-- Removed currentPage display -->
+  </div>
+   <!-- Show spinner only on initial load -->
+  <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading && episodesList.length === 0" />
+
+ <div class="row" *ngIf="episodesList.length > 0"> <!-- Show row only if there are episodes -->
+    <div class="col-12 col-sm-6 col-md-3" *ngFor="let episode of episodesList"> <!-- Use episodesList -->
+      <app-episodes-episode-card [episode]="episode"/>
+    </div>
+  </div>
+   <!-- Show loading indicator for subsequent pages -->
+  <app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading && episodesList.length > 0" />
+
+  <!-- Paginador removed -->
+  
+</div>

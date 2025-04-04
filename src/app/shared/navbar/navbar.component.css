@@ -1,0 +1,114 @@
+/* Estilização do texto com gradiente */
+.gradient-text {
+  background: linear-gradient(to right, rgb(104, 255, 144), rgb(0, 191, 255), rgb(148, 0, 211));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.2rem; /* Ajuste o tamanho conforme necessário */
+  font-weight: bold; /* Ajuste o peso da fonte se necessário */
+}
+
+/* Estilização do logo */
+.logonav {
+  width: 165px;
+  height: 65px;
+  /* Outras propriedades de estilo, se necessário */
+}
+
+/* Alinhamento do logo */
+.logo-container {
+  display: flex;
+  justify-content: flex-start; /* Garante que o logo fique alinhado à esquerda */
+  align-items: center; /* Centraliza verticalmente */
+  padding-left: 15px; /* Ajuste para dar espaçamento da borda */
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 576px) {
+  .logo-container {
+    justify-content: flex-start; /* Garante que o logo fique à esquerda em telas menores */
+    padding-left: 10px; /* Ajuste do espaçamento */
+  }
+}
+
+/* Para telas médias (tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-nav {
+    flex-direction: row; /* Menu horizontal em tablets */
+  }
+}
+
+/* Para telas grandes (desktops) */
+@media (min-width: 992px) {
+  .navbar-nav {
+    flex-direction: row; /* Menu horizontal em desktops */
+  }
+}
+
+/* Para telas maiores */
+@media (min-width: 577px) {
+  .logo-container {
+    justify-content: flex-start; /* A imagem permanece à esquerda */
+    margin-right: auto; /* Garante que a imagem fique no início */
+  }
+}
+
+/* Estilização do botão hamburguer */
+.navbar-toggler-custom {
+  background-color: transparent; /* Fundo transparente */
+  border: 2px solid white; /* Borda branca */
+  padding: 10px;
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+.navbar-toggler-icon {
+  background-color: white; /* Cor do ícone */
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.navbar-toggler-icon:before,
+.navbar-toggler-icon:after {
+  background-color: white;
+}
+
+/* Estilos para a navbar com responsividade */
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha os itens do menu à esquerda por padrão */
+}
+
+@media (min-width: 576px) {
+  .navbar-nav {
+    flex-direction: row; /* Quando a tela for maior que 576px, o menu será horizontal */
+  }
+}
+
+/* Estilos para a navegação em telas menores */
+@media (max-width: 576px) {
+  .navbar-nav {
+    flex-direction: column; /* No mobile, o menu se torna vertical */
+    align-items: center; /* Alinha os itens centralizados */
+  }
+}
+
+/* Esconde o input de busca em telas pequenas */
+@media (max-width: 768px) {
+  .d-md-flex {
+    display: none !important;
+  }
+}
+
+/* Centraliza as opções do menu hamburguer */
+#navbarContent ul.navbar-nav {
+  text-align: center;
+}
+
+/* Ajusta a responsividade do link de Login */
+@media (max-width: 768px) {
+  .navbar-nav.ms-auto {
+    flex-direction: column;
+    align-items: center;
+  }
+}

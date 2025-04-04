@@ -1,0 +1,53 @@
+<div class="container mt-4">
+  <div *ngIf="username">
+    <h2>Perfil de {{ username }}</h2>
+    <button (click)="logout()" class="btn btn-sm btn-outline-danger">Logout</button>
+    <hr>
+  </div>
+
+  <h4>Personagens Favoritos</h4>
+
+  <div *ngIf="isLoading" class="text-center mt-3">
+    <app-shared-spinner></app-shared-spinner> <!-- Corrigido o seletor -->
+    <p>Carregando favoritos...</p>
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage">
+    <div *ngIf="favoriteCharacters.length > 0; else noFavorites" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mt-3">
+      <div *ngFor="let character of favoriteCharacters" class="col">
+        <div class="card h-100">
+          <img [src]="character.image" class="card-img-top" [alt]="character.name">
+          <div class="card-body">
+            <h5 class="card-title">{{ character.name }}</h5>
+            <p class="card-text">
+              <span class="badge rounded-pill"
+                    [ngClass]="{'bg-success': character.status === 'Alive', 'bg-danger': character.status === 'Dead', 'bg-secondary': character.status === 'unknown'}">
+                {{ character.status }}
+              </span>
+              - {{ character.species }}
+            </p>
+          </div>
+          <div class="card-footer text-center">
+             <!-- Link para detalhes do personagem -->
+             <a [routerLink]="['/characters/detalle', character.id]" class="btn btn-sm btn-outline-primary me-2">
+              Ver Detalhes
+            </a>
+            <!-- Botão para remover favorito -->
+            <button (click)="removeFavorite(character.id)" class="btn btn-sm btn-outline-danger" title="Remover dos Favoritos">
+              Remover <i class="fa fa-trash"></i> <!-- Ícone de lixeira (se Font Awesome estiver disponível) -->
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noFavorites>
+      <p class="text-muted mt-3">Você ainda não adicionou nenhum personagem aos favoritos.</p>
+    </ng-template>
+  </div>
+
+</div>

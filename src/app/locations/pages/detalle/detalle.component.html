@@ -1,0 +1,46 @@
+<app-shared-spinner
+  [mensaje]="mensaje"
+  class="mt-2"
+  *ngIf="isLoading; else lugar"
+/>
+
+<ng-template #lugar>
+  <div class="card text-end mb-3 shadow-lg">
+    <div class="card-header">
+      <h3 class="gradient-text text-center">Nome do Lugar:</h3>
+      <p class="text-white text-center">
+        {{ location!.name }}
+      </p>
+    </div>
+    <div class="card-body bg-transparent">
+      <h4 class="card-title text-primary">
+        Tipo de Lugar:
+        <span class="badge bg-dark text-white">{{ location?.type }}</span>
+      </h4>
+      <h4 class="card-title text-primary ">
+        Dimensao do lugar:
+        <span class="badge bg-dark text-white">{{ location?.dimension }}</span>
+      </h4>
+      <h4 class="card-title text-primary">
+        Quantidade de habiitantes:
+        <span class="badge bg-dark text-white">{{ (location?.residents)!.length }}</span>
+      </h4>
+    </div>
+    <div class="card-footer text-muted">
+      <div class="row">
+        <div class="col-8">
+          <p class="text-light">Criação: {{ location?.created | date }}</p>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-dark btn-block" routerLink="/locations">
+            <i
+              class="fas fa-arrow-rotate-left"
+              style="color: rgb(226, 228, 226); font-size: 20px"
+            ></i>
+            Voltar a lista
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

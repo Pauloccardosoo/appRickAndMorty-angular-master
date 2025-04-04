@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" routerLink="/">
+      <img class="logonav" src="assets/icons/logonav.png" alt="Rick and Morty Logo" style="height: 60px; width: 135px;">
+    </a>
+
+    <!-- Botão Toggler para mobile -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarContent"
+      aria-controls="navbarContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Conteúdo Colapsável -->
+    <div class="collapse navbar-collapse d-flex justify-content-between align-items-center" id="navbarContent">
+      <!-- Itens Principais do Menu (Esquerda) -->
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 justify-content-center">
+        <li class="nav-item" *ngFor="let item of menuItems">
+          <a class="nav-link" [routerLink]="item.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ item.name }}</a>
+        </li>
+      </ul>
+
+      <!-- Search input -->
+      <div class="d-none d-md-flex align-items-center" *ngIf="router.url !== '/auth/login'">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          (keyup.enter)="search($any($event.target).value)"
+        />
+      </div>
+
+      <!-- Itens de Autenticação (Direita) -->
+      <ul class="navbar-nav ms-auto mb-2 mb-md-0 justify-content-center">
+        <!-- Link de Login (se não autenticado) -->
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link" routerLink="/auth/login" routerLinkActive="active" style="text-align: right;">Login</a>
+        </li>
+
+        <!-- Dropdown do Usuário (se autenticado) -->
+        <li class="nav-item dropdown" *ngIf="isAuthenticated && username">
+          <a class="nav-link dropdown-toggle"  id="navbarDropdownUserLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Olá, {{ username }}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUserLink">
+            <li><a class="dropdown-item" routerLink="/auth/profile">Meu Perfil</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <button class="dropdown-item" type="button" (click)="logout()">Logout</button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div> <!-- Fim do Conteúdo Colapsável -->
+  </div> <!-- Fim do Container -->
+</nav>
